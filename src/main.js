@@ -1,8 +1,14 @@
-// const { fetch } = global;
+export const search = (query, type) => {
 
-export const search = (query, type) =>
-  fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`)
+  const headers = {
+    headers: {
+      Authorization: 'Bearer BQB28-AZ7Ao5xDX7NP6oYG06UHQbQ3hA86UqWbV31KKl3hhuq6rH6opvDfvnIMBnrUSMyoxaLzsGLxTCR88',
+    },
+  };
+
+  return fetch(`https://api.spotify.com/v1/search?query=${query}&type=${type}`, headers)
     .then(data => data.json());
+}
 
 export const searchAlbums = query => search(query, 'album');
 
